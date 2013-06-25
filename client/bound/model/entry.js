@@ -24,10 +24,11 @@ define(['bound/model', 'marked', 'jquery'],
       var fragment;
       var image;
       var leader;
+      var subtree;
       var index;
 
       if (first.type === 'code') {
-        ast = ast.slice(1);
+        ast.shift();
       }
 
       index = 0;
@@ -39,7 +40,10 @@ define(['bound/model', 'marked', 'jquery'],
 
       while(ast[index] && !leader) {
         if (ast[index].type === 'paragraph') {
-          leader = marked.parser([ast[index]]);
+          subtree = [ast[index]];
+          subtree.links = ast.links;
+
+          leader = marked.parser(subtree);
         }
       }
 

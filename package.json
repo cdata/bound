@@ -1,6 +1,6 @@
 {
   "name": "bound",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A static publishing system for 'single page' apps.",
   "main": "lib/bound.js",
   "scripts": {
